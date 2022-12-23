@@ -1,0 +1,16 @@
+int numIdenticalPairs(int* nums, int numsSize)
+{
+        int count = 0;
+        int k;
+        int j;
+        for (j = 0; j < numsSize; j++)
+        {
+            for (k = 0; k < numsSize; k++)
+            {
+                if (k > j)
+                    if (nums[j] == nums[k])
+                        count++;
+            }
+        }
+        return (count);
+}
