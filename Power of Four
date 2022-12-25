@@ -1,0 +1,16 @@
+bool isPowerOfFour(int n)
+{
+    int t = n;
+    if (t == 1)
+        return true;
+    if (t != 1 && t < 4)
+        return false;
+    else if (t == 1)
+        return true;
+    else if (t % 4 != 0)
+        return false;
+    t = n / 4;
+    if (t != 0)
+         return isPowerOfFour(t);
+    return true;
+}
