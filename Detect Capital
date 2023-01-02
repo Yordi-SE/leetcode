@@ -1,0 +1,16 @@
+bool detectCapitalUse(char * word)
+{
+    int j = 0;
+    for (int i = 0; i < strlen(word); i++)
+    {
+        if (word[i] >= 'A' && word[i] <= 'Z')
+            j++;
+    }
+    if (j == strlen(word))
+        return true;
+    if (j == 0)
+        return true;
+    if ((word[0] >= 'A' && word[0] <= 'Z') && j == 1)
+        return true;
+    return false;
+}
