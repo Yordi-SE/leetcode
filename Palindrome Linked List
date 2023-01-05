@@ -1,0 +1,37 @@
+#include <stdio.h>
+#include <stdlib.h>
+/**
+ * Definition for singly-linked list.
+ * struct ListNode {
+ *     int val;
+ *     struct ListNode *next;
+ * };
+ */
+bool isPalindrome(struct ListNode* head){
+    struct ListNode *s = malloc(sizeof(struct ListNode));
+    int *d;
+    int i = 0;
+    int j = 0;
+    s = head;
+    while (s != NULL) {
+        s = s->next;
+        i++;
+    }
+    d = malloc(sizeof(int) * i);
+    s = head;
+    while (s != NULL) {
+        d[j] = s->val;
+        s = s->next;
+        j++;
+    }
+    s = head;
+    for (j = i - 1; j >= 0; j--)
+    {
+        if (d[j] != s->val)
+            return false;
+        s = s->next;
+    }
+    free(s);
+    free(d);
+    return true;
+}
