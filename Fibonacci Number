@@ -1,0 +1,19 @@
+int fib(int n)
+{
+
+  int i;
+  int t1 = 0, t2 = 1;
+  int nextTerm = t1 + t2;
+
+  if (n == 1 || n == 0)
+  {
+      return n;
+  }
+  for (i = 3; i <= n; ++i) {
+    t1 = t2;
+    t2 = nextTerm;
+    nextTerm = t1 + t2;
+  }
+
+  return nextTerm;
+}
