@@ -1,0 +1,28 @@
+int selectIndex(int arr[], int i, int m)
+{
+    // code here such that selecionSort() sorts arr
+    int j = i, returnindex = i, t = arr[i];
+    // printf("%d\n", m);
+    while (j < m)
+    {
+        if(arr[j] < t)
+        {
+            returnindex = j;
+            t = arr[j];
+        }
+        j++;
+    }
+    return returnindex;
+}
+
+
+void selectionSort(int arr[], int n)
+{
+  //code here
+  int i,s;
+  for (i = 0; i < n - 1; i++)
+  {
+      s = selectIndex(arr, i, n);
+      swap(&arr[i], &arr[s]);
+  }
+}
