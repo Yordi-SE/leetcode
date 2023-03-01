@@ -1,0 +1,19 @@
+class Solution:
+    def checkArithmeticSubarrays(self, nums: List[int], l: List[int], r: List[int]) -> List[bool]:
+        list2 = []
+        for y, x in zip(l, r):
+            list1 = sorted(nums[y:x+1])
+            m = list1[1] - list1[0]
+            for u in range(len(list1)):
+                try:
+                    if list1[u + 1] - list1[u] == m:
+                        s = 1
+                    else:
+                        s = 0
+                        list2.append(False)
+                        break
+                except Exception:
+                    break
+            if (s == 1):
+                list2.append(True)
+        return list2
