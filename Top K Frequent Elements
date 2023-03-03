@@ -1,0 +1,18 @@
+class Solution:
+    def topKFrequent(self, nums: List[int], k: int) -> List[int]:
+        nums.sort()
+        set1 = set(nums)
+        m = 0
+        list1 = []
+        list2 = []
+        for i in set1:
+            for j in nums:
+                if j == i:
+                    m += 1
+            list1.append([m, i])
+            m = 0
+        list1.sort()
+        list1.reverse()
+        for i in list1[:k]:
+            list2.append(i[1])
+        return list2
