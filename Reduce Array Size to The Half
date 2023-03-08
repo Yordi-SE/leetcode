@@ -1,0 +1,13 @@
+class Solution:
+    from collections import Counter
+    def minSetSize(self, arr: List[int]) -> int:
+        most_common = Counter(arr)
+        tmp = len(arr) / 2
+        r = 0
+        s = 0
+        for i in reversed(sorted(most_common.values())):
+            r += 1
+            s += i
+            if s >= tmp:
+                break
+        return r
