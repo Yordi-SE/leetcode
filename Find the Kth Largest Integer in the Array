@@ -1,0 +1,6 @@
+class Solution:
+    def kthLargestNumber(self, nums: List[str], k: int) -> str:
+        list2 = list(map(lambda x: eval(x), nums))
+        list2.sort()
+        list2.reverse()
+        return str(list2[k-1])
