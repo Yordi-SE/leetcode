@@ -1,0 +1,26 @@
+class Solution:
+    def isValid(self, s: str) -> bool:
+        str1 = '({['
+        str2 = ')}]'
+        stack = []
+        m = 0
+        e = 0
+        r = 0
+        for i in s:
+            if i in str1:
+                stack.append(i)
+                e += 1
+            elif i in str2:
+                m = -1
+                r += 1
+                if not stack:
+                    return False
+                if str2.index(i) == str1.index(stack.pop()):
+                    continue
+                else:
+                    return False
+        if r != e:
+            return False
+        if len(s) == 1 or m == 0:
+            return False
+        return True
