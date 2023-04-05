@@ -6,15 +6,16 @@ class MyQueue:
 
     def push(self, x: int) -> None:
         self.__data.append(x)
-        self.__data2.insert(0, x)
-
     def pop(self) -> int:
-        return self.__data2.pop()
+        self.__data2.append(self.__data[0])
+        l = self.__data2.pop()
+        self.__data = self.__data[self.__data.index(l) + 1:]
+        return l
 
     def peek(self) -> int:
-        return self.__data2[-1]
+        return self.__data[0]
 
     def empty(self) -> bool:
-        if not self.__data2:
+        if not self.__data:
             return True
         return False
