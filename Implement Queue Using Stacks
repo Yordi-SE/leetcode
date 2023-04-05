@@ -1,0 +1,20 @@
+class MyQueue:
+
+    def __init__(self):
+        self.__data = []
+        self.__data2 = []
+
+    def push(self, x: int) -> None:
+        self.__data.append(x)
+        self.__data2.insert(0, x)
+
+    def pop(self) -> int:
+        return self.__data2.pop()
+
+    def peek(self) -> int:
+        return self.__data2[-1]
+
+    def empty(self) -> bool:
+        if not self.__data2:
+            return True
+        return False
