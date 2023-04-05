@@ -1,0 +1,13 @@
+class Solution:
+    def evalRPN(self, tokens: List[str]) -> int:
+        stack = []
+        oper = ['-', '+', '*', '/']
+        for i in tokens:
+            stack.append(i)
+            if stack[-1] in oper:
+                m = stack.pop()
+                s = stack.pop()
+                r = stack.pop()
+                l = int(eval(r + m + s))
+                stack.append(str(l))
+        return eval(stack.pop())
