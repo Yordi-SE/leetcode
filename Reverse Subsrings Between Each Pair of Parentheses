@@ -1,9 +1,7 @@
 class Solution:
     def reverseParentheses(self, s: str) -> str:
         x = []
-        m = []
         list1 = list(s)
-        j = 0
         for u, i in enumerate(list1):
             if i == '(':
                 x.append(u)
@@ -13,6 +11,5 @@ class Solution:
                 list1[u] = ""
                 list1[y + 1: u] = reversed(list1[y + 1 : u])
                 x.pop()
-                print(list1)
 
         return "".join(list1)
