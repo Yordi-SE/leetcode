@@ -1,0 +1,13 @@
+class Solution: 
+    def select(self, arr, i):
+        # code here
+        tmp = arr[i]
+        for u in range(i, len(arr)):
+            if tmp > arr[u]:
+                tmp, arr[u] = arr[u], tmp
+        return tmp
+    def selectionSort(self, arr,n):
+        #code here
+        for u, i in enumerate(arr):
+            minimum = self.select(arr, u)
+            arr[u], minimum = minimum, arr[u]
