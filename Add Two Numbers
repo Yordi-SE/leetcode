@@ -1,0 +1,30 @@
+class Solution:
+    def addTwoNumbers(self, l1: Optional[ListNode], l2: Optional[ListNode]) -> Optional[ListNode]:
+        class node:
+            def __init__(self, val=None, next=None):
+                self.val = val
+                self.next = next
+        l, m = "", ""
+        next1 = l1
+        next2 = l2
+        while next1 is not None or next2 is not None:
+            if next1 is not None:
+                l += str(next1.val)
+                next1 = next1.next
+            if next2 is not None:
+                m += str(next2.val)
+                next2 = next2.next
+        s = int("".join(reversed(l))) + int("".join(reversed(m)))
+        ans = list(str(s))
+        ans.reverse()
+        head = node(ans[0])
+        prev_node = head
+        i = 1
+        while i < len(ans):
+            new_node = node(ans[i])
+            prev_node.next = new_node
+            prev_node = new_node
+            i += 1
+
+        prev_node.next = None
+        return head
