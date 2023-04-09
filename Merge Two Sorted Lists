@@ -1,0 +1,28 @@
+class Solution:
+    def mergeTwoLists(self, list1: Optional[ListNode], list2: Optional[ListNode]) -> Optional[ListNode]:
+        class node:
+            def __init__(self, val=0, next=None):
+                self.val = val
+                self.next = next
+        ans = []
+        l1 = list1
+        l2 = list2
+        while l1 is not None or l2 is not None:
+            if l1 is not None:
+                ans.append(l1.val)
+                l1 = l1.next
+            if l2 is not None:
+                ans.append(l2.val)
+                l2 = l2.next
+        ans.sort()
+        if ans == []:
+            return None
+        head = node(ans[0])
+        prev_node = head
+        i = 1
+        while i < len(ans):
+            new_node = node(ans[i])
+            prev_node.next = new_node
+            prev_node = new_node
+            i += 1
+        return head
