@@ -1,0 +1,20 @@
+class Solution:
+    def pivotIndex(self, nums: List[int]) -> int:
+        sums= []
+        i = 0
+        while i < len(nums):
+            if i >= 1:
+                sums.append(nums[i] + sums[i - 1])
+            else:
+                sums.append(nums[i])
+            i += 1
+        for i in range(len(nums)):
+            if i == 0:
+                if sums[-1] - sums[i] == 0:
+                    return i
+            elif i == len(nums) - 1:
+                if sums[i - 1] == 0:
+                    return i
+            elif sums[-1] - sums[i] == sums[i - 1]:
+                return i
+        return -1
