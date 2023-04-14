@@ -1,0 +1,37 @@
+class MyCircularQueue:
+
+    def __init__(self, k: int):
+        self.cqueue = deque(maxlen=k)
+        self.len = k
+        
+
+    def enQueue(self, value: int) -> bool:
+        if len(self.cqueue) == self.len:
+            return False
+        self.cqueue.append(value)
+        return True
+
+    def deQueue(self) -> bool:
+        if len(self.cqueue) == 0:
+            return False
+        self.cqueue.popleft()
+        return True
+
+    def Front(self) -> int:
+        if len(self.cqueue) == 0:
+            return -1
+        return self.cqueue[0]
+
+    def Rear(self) -> int:
+        if len(self.cqueue) == 0:
+            return -1
+        return self.cqueue[-1]     
+
+    def isEmpty(self) -> bool:
+        if len(self.cqueue) == 0:
+            return True
+        return False
+    def isFull(self) -> bool:
+        if len(self.cqueue) == self.len:
+            return True
+        return False
