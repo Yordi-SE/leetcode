@@ -1,0 +1,19 @@
+class Solution:
+    def moveZeroes(self, nums: List[int]) -> None:
+        """
+        Do not return anything, modify nums in-place instead.
+        """
+        x = 0
+        y = len(nums) - 1
+        while x < y:
+            if nums[x] == 0:
+                if nums[y] != 0:
+                    nums[x], nums[y] = nums[y], nums[x]
+                    y -= 1
+                    tmp = nums[x]
+                    del nums[x]
+                    nums.insert(y, tmp)
+                else:
+                    y -= 1
+            else:
+                x += 1
