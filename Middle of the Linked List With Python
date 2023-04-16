@@ -1,0 +1,13 @@
+class Solution:
+    def middleNode(self, head: Optional[ListNode]) -> Optional[ListNode]:
+        next = head
+        rear = 1
+        while next.next is not None:
+            next = next.next
+            rear += 1
+        next = head
+        middle = 1
+        while middle <= rear // 2:
+            next = next.next
+            middle += 1
+        return next
