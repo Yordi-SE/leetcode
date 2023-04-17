@@ -1,0 +1,24 @@
+class Solution:
+    def numRescueBoats(self, people: List[int], limit: int) -> int:
+        people.sort()
+        x = 0
+        y = len(people) - 1
+        m = 0
+        while x < y:
+            n = people[x]
+            s = people[y]
+            if n + s == limit:
+                m += 1
+                people[x] = []
+                people[y] = []
+                x += 1
+                y -= 1
+            elif n + s < limit:
+                m += 1
+                people[x] = []
+                people[y] = []
+                x += 1
+                y -= 1
+            elif n + s > limit:
+                y -= 1
+        return m + (len(people) - people.count([]))
