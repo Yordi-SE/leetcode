@@ -1,0 +1,11 @@
+class Solution:
+    def frequencySort(self, s: str) -> str:
+        set1 = list(set(s))
+        my_dict = {}
+        m = ""
+        for i in set1:
+            my_dict[i] = s.count(i)
+        sorted_dict = dict(sorted(my_dict.items(), key=lambda item: item[1]))
+        for i in sorted_dict.keys():
+            m = (i * sorted_dict[i]) + m[0:]
+        return m
